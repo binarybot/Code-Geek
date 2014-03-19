@@ -68,10 +68,10 @@ public class ClosestpointOrigin {
     public static void close2d(List<point> l){
     int xo = 0,yo=0;
 
-double a1[] = new double[l.size()];
 
+//adding object into Priority Queue....
 PriorityQueue<po> l1 = new PriorityQueue<>(3,idComparator);
-
+//List of objects....
 List<po> lis = new ArrayList<>();
 
 
@@ -81,18 +81,18 @@ List<po> lis = new ArrayList<>();
         double res = Math.abs(Math.sqrt(((l.get(i).getx()*l.get(i).getx())-xo)+((l.get(i).gety()*l.get(i).gety())-yo)));
         
         System.out.println(res);
-        a1[i]=res;
+        //a1[i]=res;
         po p = new po(l.get(i).getx(),l.get(i).gety(),res);
         l1.add(p);
         lis.add(p);
     }
-    
+    //Sorting the List lis... 
     Collections.sort(lis,idComparator );
     System.out.println("Printing the list");
     
-    for(po i : lis){System.out.println(i.gety());}
-    
-        for(int i=0;i<2;i++){
+    for(po i : lis){System.out.println(i.getx()+"\t" + i.gety()+"\t" + i.getres());}
+    //Printing the Queue elements...
+        for(int i=0;i<=2;i++){
         
             System.out.println("Dist : "+l1.peek().getres());// +"\t"+ "points :" + l.get(i).getx() + l.get(i).gety());
                 l1.poll();
@@ -115,15 +115,17 @@ List<po> lis = new ArrayList<>();
         
             String sa = sc.nextLine();
             String s1[] = sa.split("\\s");
-            
+            //Enter x and y coordinates of the points....
             int x = Integer.parseInt(s1[0]);
             int y = Integer.parseInt(s1[1]);
             
+            //Class point p passing x &y...
             point p = new point(x,y);
-            
+            //Adding custom class object into list...
             l.add(p);
         
         }
+        //Calling 2d function to claculate the closest point to origin...
         close2d(l);
     }
 }
