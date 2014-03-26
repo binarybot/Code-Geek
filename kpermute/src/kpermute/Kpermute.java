@@ -46,7 +46,7 @@ public class Kpermute {
         String sa = sc.nextLine();
         
         String s1[] = sa.split("\\s");
-        int k =2;
+        int k =sc.nextInt();
         permutek(s1,k);
         
     }
